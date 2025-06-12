@@ -57,67 +57,6 @@ Includes JWT-based authentication, protected routes, CRUD operations, request va
 
 ## Sample Postman Collection (in JSON)
 
-A `/postman/Blog_API.postman_collection.json` file exported from Postman in with requests like:
-
-```json
-
-# "Auth_App" API with JWT
-
-A secure Node.js authentication API using JWT, MongoDB, and Express.
-
-## Endpoints
-
-#### User Endpoints
-
-| Method | Endpoint         | Description                  | Protected |
-|--------|------------------|------------------------------|-----------|
-| POST   | `/user/signup`   | Register a new user          | No        |
-| POST   | `/user/signin`   | Login and get JWT cookie     | No        |
-| GET    | `/user/profile`  | Get current user data        | Yes       |
-| POST   | `/user/logout`   | Logout and clear JWT cookie  | Yes       |
-
----
-
-#### Blog Endpoints
-
-| Method | Endpoint             | Description                       | Protected |
-|--------|----------------------|-----------------------------------|-----------|
-| GET    | `/blog/all`          | Get all blogs                     | No        |
-| GET    | `/blog/user/:id`     | Get blogs created by a user       | No        |
-| POST   | `/blog/create`       | Create a new blog                 | Yes       |
-| PUT    | `/blog/update/:id`   | Update an existing blog by ID     | Yes       |
-| DELETE | `/blog/delete/:id`   | Delete a blog by ID               | Yes       |
-
-
-
-## Setup
-
-1. Clone the repo:
-
-   ```bash
-   git clone https://github.com/Aritra-Dey-117-XT/Blog_API.git
-   cd blog-api
- 2.  Install dependencies:
- 
-     ```bash
-	 npm install
-3.  Configure  `.env`:
-
-	```bash
-	MONGODB_URI=your_mongodb_uri
-	JWT_SECRET=your_secret_key
-4.  Start the server:
-    
-    ```bash  
-    node app.js
-    ```
-    or use `nodemon` to auto-restarts the server whenever you make changes to the file:
-    ```bash  
-    nodemon app.js
----
-
-## Sample Postman Collection (in JSON)
-
 A `Blog_API.postman_collection.json` file exported from Postman. 
 * Developers are encouraged to test additional API request scenarios, such as missing or invalid parameters (e.g., no email, invalid email format, or weak passwords).
 * You may also test access to protected routes without authentication to evaluate the robustness and effectiveness of the API's validation and authorization mechanisms.
