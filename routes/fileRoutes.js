@@ -28,6 +28,6 @@ const imageFileFilter = (req, file, cb) => {
 const upload = multer({ storage, fileFilter: imageFileFilter })
 
 router.post('/upload', requireAuth, upload.single('image'), uploadImage)
-router.get('/images', getImages)
+router.get('/all', getImages)
 
 export default router

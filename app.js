@@ -30,7 +30,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.use("/user", userRoutes)
 app.use("/blog", blogRoutes)
-app.use('/upload', fileRoutes)
+app.use('/image', fileRoutes)
 
 app.get('/', (req, res) => {
   res.send(`Auth API running on port ${port}`)

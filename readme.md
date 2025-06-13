@@ -1,8 +1,44 @@
 
-# Blog_API
+# Secure Node.js Blog API
 
 A clean and secure RESTful Blog API built with Node.js, Express, and MongoDB.
 Features include JWT-based authentication, protected routes, full CRUD operations, request validation, centralized error handling, request logging, and image uploading using Multer with local storage and public access.
+
+---
+
+## Features & Working
+
+### User Authentication
+- Secure user registration and login using **JWT** stored in HTTP-only cookies.
+- Input validation with **express-validator** for safe and clean request data.
+- Access to protected routes only for authenticated users.
+- Logout mechanism to clear authentication cookies.
+
+### Blog CRUD API
+- RESTful API for managing blog posts: **Create**, **Read**, **Update**, and **Delete**.
+- Only logged-in users can create, update, or delete blogs.
+- Middleware for:
+  - **Request logging**
+  - **Centralized error handling**
+  - **Route protection** using JWT authentication
+
+### Image Uploading API
+- Upload a single image using **Multer** with local file storage.
+- Uploaded files are stored in a public `/uploads` folder.
+- Retrieve public image URLs using a GET endpoint.
+- Only image file types (`.jpg`, `.jpeg`, `.png`, `.gif`) are allowed.
+- **Note:** This image upload module is **standalone** feature, not yet integrated with blogs or profiles.
+
+---
+
+## User Permissions
+
+| Role        | Capabilities                                                                 |
+|-------------|-------------------------------------------------------------------------------|
+| Anyone      | Sign up, Sign in, View all blogs, View blogs by user, View uploaded images   |
+| Authenticated Users | Create blog, Update/Delete own blogs, View own profile, Upload image      |
+
+---
 
 ## Endpoints
 

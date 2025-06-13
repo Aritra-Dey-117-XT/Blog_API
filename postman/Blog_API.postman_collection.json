@@ -253,13 +253,13 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/upload/upload",
+					"raw": "localhost:3000/image/upload",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"upload",
+						"image",
 						"upload"
 					]
 				}
@@ -272,14 +272,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/upload/images",
+					"raw": "localhost:3000/image/all",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"upload",
-						"images"
+						"image",
+						"all"
 					]
 				}
 			},
