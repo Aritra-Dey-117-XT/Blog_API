@@ -1,8 +1,8 @@
 
 # Blog_API
 
-A clean and secure RESTful Blog API built with Node.js, Express, and MongoDB.  
-Includes JWT-based authentication, protected routes, CRUD operations, request validation, centralized error handling, and request logging.
+A clean and secure RESTful Blog API built with Node.js, Express, and MongoDB.
+Features include JWT-based authentication, protected routes, full CRUD operations, request validation, centralized error handling, request logging, and image uploading using Multer with local storage and public access.
 
 ## Endpoints
 
@@ -27,7 +27,14 @@ Includes JWT-based authentication, protected routes, CRUD operations, request va
 | PUT    | `/blog/update/:id`   | Update an existing blog by ID     | Yes       |
 | DELETE | `/blog/delete/:id`   | Delete a blog by ID               | Yes       |
 
+---
 
+#### Image Upload Endpoints
+
+| Method | Endpoint             | Description                       | Protected |
+|--------|----------------------|-----------------------------------|-----------|
+| GET    | `/upload/images`     | Get all uploaded Image URLs       | No        |
+| POST   | `/upload/upload`     | Upload a single Image file        | Yes       |
 
 ## Setup
 
@@ -36,6 +43,10 @@ Includes JWT-based authentication, protected routes, CRUD operations, request va
    ```bash
    git clone https://github.com/Aritra-Dey-117-XT/Blog_API.git
    cd blog-api
+   ```
+   Ensure that the `./uploads` directory exists at the root of the 	  project (for storing uploaded images locally). If it doesn’t exist, create it manually before running the server:
+   ```bash
+   mkdir uploads
  2.  Install dependencies:
  
      ```bash
@@ -55,13 +66,22 @@ Includes JWT-based authentication, protected routes, CRUD operations, request va
     nodemon app.js
 ---
 
+## Testing Tips
+
+- Test with missing or invalid parameters (e.g., no email, invalid email format, weak password).
+- Try accessing protected routes without authentication to verify authorization.
+- Test image upload by:
+  - Uploading a valid image via `POST /upload/upload` using form-data with key `image`.
+  - Uploading multiple files or non-image files (should be rejected).
+- `GET /upload/images` returns an array of image URLs. Visit a URL in the browser to view the image.
+
+> ⚠️ Ensure the `./uploads` folder exists in the project root for storing uploaded images.
+
+
 ## Sample Postman Collection (in JSON)
 
 A `Blog_API.postman_collection.json` file exported from Postman. 
-* Developers are encouraged to test additional API request scenarios, such as missing or invalid parameters (e.g., no email, invalid email format, or weak passwords).
-* You may also test access to protected routes without authentication to evaluate the robustness and effectiveness of the API's validation and authorization mechanisms.
-
-Some Example API Requests in `/postman/Blog_API.postman_collection.json` are:
+An example `POST /signup` API request in `/postman/Blog_API.postman_collection.json` given below:
 
 ```json
 {	
@@ -92,60 +112,6 @@ Some Example API Requests in `/postman/Blog_API.postman_collection.json` are:
 					"path": [
 						"user",
 						"signup"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get-all-blogs",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/blog/all",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"blog",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "update-blog",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"I am Iron Man\",\r\n    \"description\": \"'The Truth is, I am Iron Man!', said Tony Stark, famous Billionare.\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/blog/update/:userid",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"blog",
-						"update",
-						":userid"
-					],
-					"variable": [
-						{
-							"key": "userid",
-							"value": ""
-						}
 					]
 				}
 			},

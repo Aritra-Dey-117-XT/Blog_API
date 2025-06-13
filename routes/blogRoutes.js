@@ -9,7 +9,6 @@ router.get('/all', getBlogs)
 
 router.post('/create',
   requireAuth,
- 
   [
     body('title')
       .notEmpty().withMessage('Title is required')
@@ -34,7 +33,6 @@ router.post('/create',
 
 router.put('/update/:id',
   requireAuth,
- 
   [
     body('title')
       .isLength({ min: 10 }).withMessage('Title must be at least 10 characters long'),

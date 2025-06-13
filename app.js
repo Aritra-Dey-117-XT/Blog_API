@@ -5,6 +5,12 @@ import { errorHandler } from './middlewares/errorHandler.js'
 import { requestLogger } from './middlewares/logger.js'
 import userRoutes from './routes/userRoutes.js'
 import blogRoutes from './routes/blogRoutes.js'
+import fileRoutes from './routes/fileRoutes.js'
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const app = express()
 const port = 3000
@@ -20,8 +26,11 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(requestLogger)
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+
 app.use("/user", userRoutes)
 app.use("/blog", blogRoutes)
+app.use('/upload', fileRoutes)
 
 app.get('/', (req, res) => {
   res.send(`Auth API running on port ${port}`)
