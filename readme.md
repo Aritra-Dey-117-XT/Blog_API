@@ -58,7 +58,7 @@ Features include JWT-based authentication, protected routes, full CRUD operation
 | Method | Endpoint             | Description                       | Protected |
 |--------|----------------------|-----------------------------------|-----------|
 | GET    | `/blog/all`          | Get all blogs                     | No        |
-| GET    | `/blog/all?userId=:userid`     | Get blogs created by a user       | No        |
+| GET    | `/blog/all?userId=:userid`     | Get blogs created by an user       | No        |
 | POST   | `/blog/create`       | Create a new blog                 | Yes       |
 | PUT    | `/blog/update/:id`   | Update an existing blog by ID     | Yes       |
 | DELETE | `/blog/delete/:id`   | Delete a blog by ID               | Yes       |
