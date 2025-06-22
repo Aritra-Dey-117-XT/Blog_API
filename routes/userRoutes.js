@@ -17,7 +17,8 @@ router.post('/signup',
       .isEmail().withMessage('Invalid email'),
     body('password')
       .notEmpty().withMessage('Password is required')
-      .isLength({ min: 6 }).withMessage('Password must be at least 6 characters long').custom(passwordValidator)
+      .isLength({ min: 6 }).withMessage('Password must be at least 6 characters long')
+      .custom(passwordValidator)
   ],
   async(req, res, next) => {
     const errors = validationResult(req)

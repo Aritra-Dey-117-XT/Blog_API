@@ -69,8 +69,8 @@ Features include JWT-based authentication, protected routes, full CRUD operation
 
 | Method | Endpoint             | Description                       | Protected |
 |--------|----------------------|-----------------------------------|-----------|
-| GET    | `/upload/images`     | Get all uploaded Image URLs       | No        |
-| POST   | `/upload/upload`     | Upload a single Image file        | Yes       |
+| GET    | `/image/all`         | Get all uploaded Image URLs       | No        |
+| POST   | `/image/upload`      | Upload a single Image file        | Yes       |
 
 ## Setup
 
