@@ -27,7 +27,6 @@ router.post('/create',
     }
     next() 
   },
-  requireAuth, 
   createBlog
 )
 
@@ -49,7 +48,6 @@ router.put('/update/:id',
     }
     next() 
   },
-  requireAuth, 
   updateBlog
 )
 
